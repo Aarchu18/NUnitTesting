@@ -38,17 +38,17 @@ namespace UnitTesting.Controllers
         public IActionResult Index(CustomerTypeModel customerType)
         {
             int Discount;
-            int Pricetotal = Sum(customerType.Customer, productList, out Discount);
+            int Pricetotal = Total(customerType.Customer, productList, out Discount);
             return RedirectToAction("Summation", new { Pricetotal = Pricetotal, Discount = Discount });
         }
 
 
-        public int Sum(string customerType, List<ProductList> user, out int totalDiscount)
+        public int Total(string customerType, List<ProductList> list, out int totalDiscount)
         {
             int totalAmount = 0;
             totalDiscount = 0;
 
-            foreach (var item in user)
+            foreach (var item in list)
             {
                 if (customerType == "Regular")
                 {
