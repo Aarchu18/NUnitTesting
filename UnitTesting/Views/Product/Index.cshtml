@@ -1,0 +1,58 @@
+﻿@model IEnumerable<UnitTesting.Models.ProductList>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Products List</h2>
+
+<table class="table">
+    <tr>
+        <th>Product Id</th>
+        <th>Product Name</th>
+        <th>Product Price</th>
+
+    </tr>
+
+    @foreach (var item in Model)
+     {
+        <tr>
+
+            <td>
+                @item.ProductId
+            </td>
+            <td>
+                @item.ProductName
+            </td>
+            <td>
+                @item.ProductPrice
+            </td>
+            <td><span class="btn-btn-success">
+               @Html.ActionLink("Add","AddProduct",new { productName=item.ProductName,
+              productPrice =item.ProductPrice})
+                </span>
+            </td>
+
+        </tr>
+
+     }
+
+</table>
+<form method="post">
+    <div class="form-inline">
+        <div>
+            <select name="Customer" class="form-control">
+                <option value="">Select</option>
+                <option value="Regular">Regular</option>
+                <option value="Premium">Premium</option>
+
+            </select>&nbsp;&nbsp;
+            <button type="submit" class="btn btn-success" value="Total">CheckOut</button>
+        </div>
+
+    </div>
+
+</form>
+
+
+

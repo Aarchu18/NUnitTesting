@@ -1,0 +1,45 @@
+﻿@model UnitTesting.Models.ProductViewModel
+@{
+    ViewData["Title"] = "Summation";
+}
+
+<h2>Summation</h2>
+<body>
+    <table class="table">
+        <tr>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            
+           
+        </tr>
+        @foreach (var item in Model.ProductItems)
+        {
+            <tr>
+                <td>
+                    @item.ProductName
+                </td>
+                <td>
+                    @item.ProductPrice
+                </td>
+            </tr>
+        }
+
+            <tr>
+                <th>Product Discount</th>
+                <th>
+                    @Model.ProductDiscount
+                </th>
+                
+            </tr>
+            <tr>
+                <th>Product Total</th>
+                <th>
+                    @Model.ProductTotal
+                </th>
+
+            </tr>
+
+    </table>
+
+</body>
+
